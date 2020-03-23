@@ -1,0 +1,22 @@
+{% extends 'backend.html' %}
+
+{% block title %}Upload d'images{% endblock %}
+
+{% block main %}
+<h1>Choisissez une image à Uploader :</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    <label for="fic">Fichier</label><input id="fic" type="file" name="fic[]" multiple/>
+
+    <input href="{{ url_for('upload') }}" id="btsub" type="submit" value="Uploader" />
+</form>
+
+<h1>Voilà la liste des images à warper :</h1>
+{% if images %}
+	<ul class="fichiers">
+	{% for img in images %}
+		<li><a href="{{ url_for('upped', nom=img) }}">{{ img }}</a>
+	{% endfor %}
+	</ul>
+<a href="/script/"> warp </a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats des warping</title>
+</head>
+<body>
+<h1>Voilà la liste des images correctement warpées :</h1>
+
+<ul class="fichiers">
+	{% for img in well_warped %}
+		<li> <a href="{{ url_for('upped', nom=img) }}">{{ img }}</a>
+	{% endfor %}
+</ul>
+
+<h1>Voilà la liste des images non warpées :</h1>
+
+<ul class="fichiers">
+	{% for img in unwarped %}
+		<li> <a href="{{ url_for('upped', nom=img) }}">{{ img }}</a>
+	{% endfor %}
+</ul>
+
+<a href="/"> retour </a>
+</body>
+</html>
